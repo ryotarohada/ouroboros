@@ -24,4 +24,7 @@ export default defineConfig({
 		port: 4000,
 		host: true,
 	},
+	build: {
+		outDir: '../dist',
+	},
 })
