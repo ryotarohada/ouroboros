@@ -1,0 +1,25 @@
+import type { StorybookConfig } from '@storybook/react-vite'
+
+const config: StorybookConfig = {
+	stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+	addons: [
+		'@storybook/addon-links',
+		'@storybook/addon-essentials',
+		'@storybook/addon-onboarding',
+		'@storybook/addon-interactions',
+		'@chakra-ui/storybook-addon',
+		'storybook-addon-react-router-v6',
+	],
+	framework: {
+		name: '@storybook/react-vite',
+		options: {},
+	},
+	docs: {
+		autodocs: 'tag',
+	},
+	features: {
+		// @ts-ignore
+		emotionAlias: false,
+	},
+}
+export default config
