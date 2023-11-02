@@ -13,11 +13,11 @@ export const HomeFeature = () => {
 				<chakra.span>の少年</chakra.span>
 			</Heading>
 
-			<Text fontSize={16} mt={4}>
+			<Text fontSize={16} mt={8}>
 				著：羽田涼太郎
 			</Text>
 
-			<List mt={16} spacing={4}>
+			<List mt={16} spacing={4} fontSize={20}>
 				<ListItem>
 					<Href link="/story?id=0&page=1">Part1 Emotion</Href>
 				</ListItem>
@@ -25,6 +25,10 @@ export const HomeFeature = () => {
 					<Href link="/story?id=1&page=1">忘却花火</Href>
 				</ListItem>
 			</List>
+
+			<Text fontSize={16} mt={14}>
+				2023/11/03 更新
+			</Text>
 		</DefaultLayout>
 	)
 }
