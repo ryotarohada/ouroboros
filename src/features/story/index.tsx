@@ -28,7 +28,7 @@ export const StoryFeature = () => {
 		if (prevPageId <= 0) {
 			return
 		}
-		fetch(`/assets/story/${storyId}/${prevPageId}.md`).then((response) => {
+		fetch(`/story/${storyId}/${prevPageId}.md`).then((response) => {
 			if (response.ok) {
 				setIsFirstStory(false)
 				return
@@ -38,7 +38,7 @@ export const StoryFeature = () => {
 
 	const fetchNextStory = async (storyId: string, pageId: string) => {
 		const nextPageId = Number(pageId) + 1
-		fetch(`/assets/story/${storyId}/${nextPageId}.md`).then((response) => {
+		fetch(`/story/${storyId}/${nextPageId}.md`).then((response) => {
 			if (!response.ok) {
 				setIsLastStory(true)
 			}
@@ -71,7 +71,7 @@ export const StoryFeature = () => {
 			return
 		}
 		window.scrollTo(0, 0)
-		fetchStory(`/assets/story/${storyId}/${pageId}.md`)
+		fetchStory(`/story/${storyId}/${pageId}.md`)
 		fetchPrevStory(storyId, pageId)
 		fetchNextStory(storyId, pageId)
 		// eslint-disable-next-line react-hooks/exhaustive-deps

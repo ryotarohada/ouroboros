@@ -19,7 +19,7 @@ export default defineConfig({
 		},
 	],
 	root: './src',
-	publicDir: 'assets',
+	publicDir: 'public',
 	server: {
 		port: 4000,
 		host: true,
