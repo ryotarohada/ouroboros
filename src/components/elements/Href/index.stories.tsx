@@ -10,5 +10,8 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Base: Story = {
-	args: {},
+	args: {
+		link: '',
+		children: 'href text',
+	},
 }
