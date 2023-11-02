@@ -5,10 +5,15 @@ import { APP_URLS } from '@/constants/appUrls'
 import { CustomThemeProvider } from '@/theme'
 
 // @plop-main-page-import - Please don't delete. Comments for automatic addition by plop.
+import { StoryPage } from '@/pages/story'
 import { HomePage } from '@/pages/home'
 
 const router = createBrowserRouter([
 	// @plop-main-route - Please don't delete. Comments for automatic addition by plop.
+	{
+		path: APP_URLS.STORY,
+		element: <StoryPage />,
+	},
 	{
 		path: APP_URLS.HOME,
 		element: <HomePage />,

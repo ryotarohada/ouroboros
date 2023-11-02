@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { HomePage } from './index'
+import { StoryFeature } from './index'
 
 const meta = {
-	component: HomePage,
+	component: StoryFeature,
 	parameters: {},
-} satisfies Meta<typeof HomePage>
+} satisfies Meta<typeof StoryFeature>
 
 export default meta
 type Story = StoryObj<typeof meta>

@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { HomePage } from './index'
+import { BasicModal } from './index'
 
 const meta = {
-	component: HomePage,
+	component: BasicModal,
 	parameters: {},
-} satisfies Meta<typeof HomePage>
+} satisfies Meta<typeof BasicModal>
 
 export default meta
 type Story = StoryObj<typeof meta>
