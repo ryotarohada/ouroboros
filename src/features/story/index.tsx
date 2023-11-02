@@ -71,6 +71,8 @@ export const StoryFeature = () => {
 			return
 		}
 		window.scrollTo(0, 0)
+		setIsFirstStory(true)
+		setIsLastStory(false)
 		fetchStory(`/story/${storyId}/${pageId}.md`)
 		fetchPrevStory(storyId, pageId)
 		fetchNextStory(storyId, pageId)
