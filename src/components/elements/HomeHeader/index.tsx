@@ -20,7 +20,7 @@ export const HomeHeader = () => {
 
 	return (
 		<>
-			<HStack justify="flex-end" width="full" height={10} px={6}>
+			<HStack justify="flex-end" width="full" height={10} px={6} pt={6}>
 				<HamburgerIcon w={6} h={6} onClick={onOpen} />
 			</HStack>
 			<BasicModal isOpen={isOpen} onClose={onClose} title="設定">
