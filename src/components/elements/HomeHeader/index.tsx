@@ -65,7 +65,6 @@ export const HomeHeader = () => {
 						<chakra.span fontWeight="bold" display="inline-flex" flexDir="column">
 							読み上げ機能（α版）
 							<chakra.span fontSize={12}>※ このページの文章を読み上げます</chakra.span>
-							<chakra.span fontSize={12}>※ 現時点では一部ページのみの実装です</chakra.span>
 						</chakra.span>
 						<Switch
 							isChecked={isSpeak}
