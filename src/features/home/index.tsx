@@ -1,8 +1,12 @@
 import { Href } from '@/components/elements/Href'
 import { DefaultLayout } from '@/components/layouts/DefaultLayout'
+import { APP_URLS } from '@/constants/appUrls'
+import { useStorage } from '@/hooks/useStorage'
 import { Heading, List, ListItem, Text, chakra } from '@chakra-ui/react'
 
 export const HomeFeature = () => {
+	const { model } = useStorage()
+
 	return (
 		<DefaultLayout mt={16}>
 			<Heading as="h1" fontSize={60}>
@@ -18,6 +22,17 @@ export const HomeFeature = () => {
 			</Text>
 
 			<List mt={16} spacing={4} fontSize={20}>
+				{model.lastStoryId && model.lastPageId && (
+					<ListItem>
+						<Href
+							link={`${APP_URLS.STORY}?id=${model.lastStoryId}&page=${model.lastPageId}`}
+							fontSize={16}
+							color="red.400"
+						>
+							続きから読む
+						</Href>
+					</ListItem>
+				)}
 				<ListItem>
 					<Href link="/story?id=0&page=1">Part1 Emotion</Href>
 				</ListItem>

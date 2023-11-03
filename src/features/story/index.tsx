@@ -1,17 +1,18 @@
 import { DefaultLayout } from '@/components/layouts/DefaultLayout'
 import { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
-// import markdown from '@/markdowns/test.md'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
 import { storyTheme } from '@/theme'
 import { Button, Center, CircularProgress, HStack } from '@chakra-ui/react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { APP_URLS } from '@/constants/appUrls'
+import { useStorage } from '@/hooks/useStorage'
 
 export const StoryFeature = () => {
 	const [markdown, setMarkdown] = useState('')
 	const navigate = useNavigate()
 	const [searchParams] = useSearchParams()
+	const { onSetModel } = useStorage()
 	const [loading, setLoading] = useState(true)
 	const [isFirstStory, setIsFirstStory] = useState(true)
 	const [isLastStory, setIsLastStory] = useState(false)
@@ -19,7 +20,6 @@ export const StoryFeature = () => {
 	const fetchStory = async (path: string) => {
 		const result = await fetch(path)
 		const text = await result.text()
-		setLoading(false)
 		setMarkdown(text)
 	}
 
@@ -73,9 +73,17 @@ export const StoryFeature = () => {
 		window.scrollTo(0, 0)
 		setIsFirstStory(true)
 		setIsLastStory(false)
-		fetchStory(`/story/${storyId}/${pageId}.md`)
-		fetchPrevStory(storyId, pageId)
-		fetchNextStory(storyId, pageId)
+		Promise.all([
+			fetchStory(`/story/${storyId}/${pageId}.md`),
+			fetchPrevStory(storyId, pageId),
+			fetchNextStory(storyId, pageId),
+		]).finally(() => {
+			setLoading(false)
+			onSetModel({
+				lastStoryId: storyId,
+				lastPageId: pageId,
+			})
+		})
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [navigate, storyId, pageId])
 
