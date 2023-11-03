@@ -61,27 +61,29 @@ export const HomeHeader = () => {
 							size="lg"
 						/>
 					</ListItem>
-					<ListItem display="flex" justifyContent="space-between" alignItems="center" w="full">
-						<chakra.span fontWeight="bold" display="inline-flex" flexDir="column">
-							読み上げ機能（α版）
-							<chakra.span fontSize={12}>※ このページの文章を読み上げます</chakra.span>
-						</chakra.span>
-						<Switch
-							isChecked={isSpeak}
-							onChange={() => {
-								if (!isSpeak) {
-									scrollTo(0, 0)
-								}
-								onClose()
-								setIsSpeak(!isSpeak)
-							}}
-							size="lg"
-						/>
-					</ListItem>
-					{location.pathname !== APP_URLS.HOME && (
-						<ListItem>
-							<Href link={APP_URLS.HOME}>作品一覧へ戻る</Href>
-						</ListItem>
+					{location.pathname === APP_URLS.STORY && (
+						<>
+							<ListItem display="flex" justifyContent="space-between" alignItems="center" w="full">
+								<chakra.span fontWeight="bold" display="inline-flex" flexDir="column">
+									読み上げ機能（α版）
+									<chakra.span fontSize={12}>※ このページの文章を読み上げます</chakra.span>
+								</chakra.span>
+								<Switch
+									isChecked={isSpeak}
+									onChange={() => {
+										if (!isSpeak) {
+											scrollTo(0, 0)
+										}
+										onClose()
+										setIsSpeak(!isSpeak)
+									}}
+									size="lg"
+								/>
+							</ListItem>
+							<ListItem>
+								<Href link={APP_URLS.HOME}>作品一覧へ戻る</Href>
+							</ListItem>
+						</>
 					)}
 				</List>
 			</BasicModal>
