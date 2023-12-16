@@ -21,9 +21,9 @@ export const HomeFeature = () => {
 				著：羽田涼太郎
 			</Text>
 
-			<List mt={16} spacing={4} fontSize={20} listStyleType="initial">
+			<List mt={16} spacing={4} fontSize={20}>
 				{model.lastStoryId && model.lastPageId && (
-					<ListItem listStyleType="none">
+					<ListItem>
 						<Href
 							link={`${APP_URLS.STORY}?id=${model.lastStoryId}&page=${model.lastPageId}`}
 							fontSize={16}
