@@ -21,9 +21,9 @@ export const HomeFeature = () => {
 				著：羽田涼太郎
 			</Text>
 
-			<List mt={16} spacing={4} fontSize={20}>
+			<List mt={16} spacing={4} fontSize={20} listStyleType="initial">
 				{model.lastStoryId && model.lastPageId && (
-					<ListItem>
+					<ListItem listStyleType="none">
 						<Href
 							link={`${APP_URLS.STORY}?id=${model.lastStoryId}&page=${model.lastPageId}`}
 							fontSize={16}
@@ -34,15 +34,21 @@ export const HomeFeature = () => {
 					</ListItem>
 				)}
 				<ListItem>
-					<Href link="/story?id=0&page=1">Part1 Emotion</Href>
+					<Href link="/story?id=loop&page=loop">【Prologue - 序章】</Href>
+				</ListItem>
+				<ListItem>
+					<Href link="/story?id=0&page=1">Part1 Regret</Href>
 				</ListItem>
 				<ListItem ml={4}>
 					<Href link="/story?id=1&page=1">忘却花火</Href>
 				</ListItem>
+				<ListItem ml={4}>
+					<Href link="/story?id=2&page=1">泡沫の夢（序章まで執筆）</Href>
+				</ListItem>
 			</List>
 
 			<Text fontSize={16} mt={14}>
-				2023/11/03 更新
+				2023/12/17 更新
 			</Text>
 		</DefaultLayout>
 	)

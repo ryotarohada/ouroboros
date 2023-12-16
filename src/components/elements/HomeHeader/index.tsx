@@ -13,7 +13,10 @@ import {
 import { BasicModal } from '../BasicModal'
 import { Href } from '../Href'
 import { APP_URLS } from '@/constants/appUrls'
-import { useLocation, useSearchParams } from 'react-router-dom'
+import {
+	// useLocation,
+	useSearchParams,
+} from 'react-router-dom'
 import { useStorage } from '@/hooks/useStorage'
 import { useState } from 'react'
 import ReactAudioPlayer from 'react-audio-player'
@@ -22,7 +25,7 @@ import { usePageVisibility } from 'react-page-visibility'
 export const HomeHeader = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure()
 	const { colorMode, toggleColorMode } = useColorMode()
-	const location = useLocation()
+	// const location = useLocation()
 	const [searchParams] = useSearchParams()
 	const { model, onSetModel } = useStorage()
 	const isVisible = usePageVisibility()
@@ -63,7 +66,7 @@ export const HomeHeader = () => {
 					</ListItem>
 					{location.pathname === APP_URLS.STORY && (
 						<>
-							<ListItem display="flex" justifyContent="space-between" alignItems="center" w="full">
+							{/* <ListItem display="flex" justifyContent="space-between" alignItems="center" w="full">
 								<chakra.span fontWeight="bold" display="inline-flex" flexDir="column">
 									読み上げ機能（α版）
 									<chakra.span fontSize={12}>※ このページの文章を読み上げます</chakra.span>
@@ -79,7 +82,7 @@ export const HomeHeader = () => {
 									}}
 									size="lg"
 								/>
-							</ListItem>
+							</ListItem> */}
 							<ListItem>
 								<Href link={APP_URLS.HOME}>作品一覧へ戻る</Href>
 							</ListItem>
